@@ -6,7 +6,7 @@ Open Source Contributor at scikit-learn
 [Twitter/X](https://x.com/em_chen2/), [LinkedIn](https://www.linkedin.com/in/emily-xinyi-chen/)
 
 Sreeram Venkitesh
-Open Source contributor at Kubernetes
+Open Source Contributor at Kubernetes
 
 [Twitter/X](https://x.com/sreeramvnkitesh), [LinkedIn](https://www.linkedin.com/in/sreeramvenkitesh/)
 
