@@ -27,11 +27,11 @@ RUN set -ex \
     && BRANCH_NAME=$(echo $GITHUB_REPO | cut -d':' -f2) \
     && git clone --single-branch -b $BRANCH_NAME https://github.com/$GITHUB_USERNAME/scikit-learn.git \
     && cd scikit-learn \
-    && pip install wheel numpy scipy cython meson-python ninja torch
+    && pip --default-timeout=1000 install wheel numpy scipy cython meson-python ninja torch
 
 WORKDIR /app
 
-RUN cd scikit-learn && pip install --editable . --verbose --no-build-isolation --config-settings editable-verbose=true
+RUN cd scikit-learn && pip --default-timeout=1000 install --editable . --verbose --no-build-isolation --config-settings editable-verbose=true
 # RUN pip freeze | grep cupy
 RUN pip install array-api-compat
 RUN python -c "import sklearn; sklearn.show_versions()"

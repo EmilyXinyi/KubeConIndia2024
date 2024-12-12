@@ -14,9 +14,9 @@ set_config(array_api_dispatch=True)
 n_samples, n_features = int(2.5e5), int(1e3)
 ridge = Ridge(alpha=1.0, solver="svd")
 
-X_cuda = torch.randn(n_samples, n_features, device="cuda")
-w = torch.randn(n_features, device="cuda")
-y_cuda = X_cuda @ w + 0.1 * torch.randn(n_samples, device="cuda")
+X_cuda = torch.randn(n_samples, n_features, device="cpu")
+w = torch.randn(n_features, device="cpu")
+y_cuda = X_cuda @ w + 0.1 * torch.randn(n_samples, device="cpu")
 X_cpu, y_cuda = X_cuda.cpu(), y_cuda
 X_np, y_np = X_cpu.numpy(), y_cuda.numpy()
 
@@ -140,4 +140,4 @@ def benchmark_gpu():
         return f"GPU Benchmark Error: {str(e)}"
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
+    app.run(host='0.0.0.0', port=6000)
